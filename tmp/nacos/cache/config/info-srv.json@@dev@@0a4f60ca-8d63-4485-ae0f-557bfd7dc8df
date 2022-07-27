@@ -1,0 +1,15 @@
+{
+  "name": "info-srv",
+  "Tags" : ["info","srv"],
+  "mysql": {
+    "host": "192.168.1.107",
+    "port": 3306,
+    "user": "root",
+    "password": "root",
+    "db": "mxshop_info_srv"
+  },
+  "consul": {
+    "host": "192.168.1.107",
+    "port": 8500
+  }
+}

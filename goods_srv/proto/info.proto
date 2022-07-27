@@ -1,0 +1,12 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+option go_package = ".;proto";
+
+service Info{
+  rpc CreateProductSellInfo(SellInfoReq) returns (google.protobuf.Empty);//创建商品销量
+  rpc CreateCategorySellInfo(SellInfoReq) returns (google.protobuf.Empty);//创建分类销量
+}
+
+message SellInfoReq{
+  int32 productId = 1;
+}

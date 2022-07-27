@@ -1,0 +1,58 @@
+syntax = "proto3";
+option go_package = ".;proto";
+
+service Order{
+  rpc CreateOrder(OrderRequest) returns (OrderInfoResponse); //创建订单
+  rpc OrderList(OrderFilterRequest) returns (OrderListResponse); // 订单列表
+  rpc OrderDetail(OrderDetailRequest) returns (OrderInfoResponse); // 订单列表
+}
+
+message OrderRequest {
+  int32 userId = 1;
+  int32 productId = 2;
+
+  string applicantName = 3;
+  string applicantMobile = 4;
+  string applicantIdNum = 5;
+
+  string insurerName = 6;
+  string insurerMobile = 7;
+  string insurerIdNum = 8;
+}
+
+message OrderInfoResponse {
+  int32 orderId = 1;
+  int32 userId = 2;
+  string orderSn = 3;
+
+  string status = 4;
+  float price = 5;
+
+  int32 productId = 6;
+  string productName = 7;
+  string createTime = 8;
+  string endTime = 9;
+
+  string applicantName = 10;
+  string applicantMobile = 11;
+  string applicantIdNum = 12;
+
+  string insurerName = 13;
+  string insurerMobile = 14;
+  string insurerIdNum = 15;
+  int32 term = 16;
+  string categoryName = 17;
+}
+
+message OrderFilterRequest {
+  int32 userId = 1;
+}
+
+message OrderListResponse {
+  int32 total = 1;
+  repeated OrderInfoResponse data = 2;
+}
+
+message OrderDetailRequest {
+  int32 orderId = 1;
+}
